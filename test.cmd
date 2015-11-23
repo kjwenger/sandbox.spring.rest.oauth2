@@ -1,0 +1,1 @@
+"\Program Files\cURL\bin\curl.exe" -H "Authorization Basic YWRtaW46cGFzc3dvcmQ=" "http://admin:password@localhost:8080/oauth/token?grant_type=password&client_id=my-trusted-client&username=admin&password=password" 
