@@ -56,15 +56,13 @@ public class LocationsResourceWithRestAssuredTest {
 
 	/**
 	 * @throws Exception
-	 * @see <a href="http://admin:password@localhost:8080/oauth/token?grant_type=password&client_id=my-trusted-client&username=admin&password=password"></a>
+	 * @see <a href="http://localhost:8080/oauth/token?grant_type=password&client_id=my-trusted-client&username=admin&password=password"></a>
 	 */
 	@Test
 	public void shouldGetRefreshToken() throws Exception {
 		HttpClient client = new DefaultHttpClient();
 		HttpUriRequest request = new HttpGet("http:"
-				+ "//admin"
-				+ ":password"
-				+ "@localhost"
+				+ "//localhost"
 				+ ":8080"
 				+ "/oauth/token"
 				+ "?grant_type=password"
@@ -74,6 +72,7 @@ public class LocationsResourceWithRestAssuredTest {
 //		BASE64Encoder encoder = new BASE64Encoder();
 //		String encoded = encoder.encode("admin:password".getBytes());
 //		request.setHeader("Authorization", "Basic " + encoded);
+		request.setHeader("Authorization", "Basic YWRtaW46cGFzc3dvcmQ=");
 		HttpResponse response = client.execute(request);
 //		assertEquals(200, response.getStatusLine().getStatusCode());
 		Reader reader = new BufferedReader(new InputStreamReader(
